@@ -1,13 +1,20 @@
 /* 中文标题 */
 @font-face {
   font-family: "ZQKHY";
-  src: url(./lore-font/ZCOOLQingKeHuangYou-Regular.ttf);
+  /* src: url(./lore-font/ZCOOLQingKeHuangYou-Regular.ttf); */
 }
 
 /* 英文标题 */
 @font-face {
   font-family: "OV";
-  src: url(./lore-font/Oswald-VariableFont_wght.ttf);
+  /* src: url(./lore-font/Oswald-VariableFont_wght.ttf); */
+}
+
+/* 定义通用字体颜色变量 */
+:root {
+    --background-color: #1E1E1E;
+    --text-color: #e1e1e1;
+    --title-color: #dddddd;
 }
 
 html,
@@ -15,8 +22,8 @@ body {
   font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
   font-size: 18px;
   overflow-x: hidden;
-  color: #d5e7d6;
-  background-color: #1E1E1E;
+  color: var(--text-color);
+  background-color: var(--background-color);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -27,7 +34,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #ebf3eb;
+  color: var(--title-color);
   font-family: OV,ZQKHY,Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
   text-shadow: 0px 1px 1px 0px #000000;
   /* margin-block-start: 0.5em;
@@ -46,7 +53,7 @@ h2 {
 
 /* strong */
 strong {
-  color: #90d60c;
+  color: #94d61a;
 }
 
 /* emphasis */
@@ -195,7 +202,12 @@ hr {
   color: #fff;
 }
 
-/* 列表视图 */
+/* 无需列表内容 */
+.ul-list,.ol-list {
+    padding-left: 20px;
+}
+
+/* 文件列表视图 */
 .file-list-item.active {
   background: #000;
 }
@@ -303,18 +315,25 @@ blockquote {
 }
 
 /* task list */
+.md-task-list-item>input {
+    padding-left: 10px;
+}
 .md-task-list-item>input::before {
   content: "";
   position: absolute;
   top: -5px;
   left: -4px;
-  border-radius: 50%;
+  border-radius: 4px;
   width: 1.1rem;
   height: 1.1rem;
   border: 1px solid #d5e7d6;
   background: #242424;
   -webkit-transition: background-color 200ms ease-in-out;
   transition: background-color 200ms ease-in-out;
+}
+.md-task-list-item>.md-end-block.md-p {
+  /* background: #901a1a; */
+  padding-left: 10px;
 }
 
 .md-task-list-item>input::after {
